@@ -1,0 +1,66 @@
+libgovirt (0.3.8-1) UNRELEASED; urgency=medium
+
+  * update
+
+ -- Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>  Thu, 19 May 2022 10:09:22 +0800
+
+libgovirt (0.3.8-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/libgovirt2.symbols: Add newly exported symbols
+  * debian/control.in: Bump Standards-Version to 4.5.1 (no further changes)
+
+ -- Laurent Bigonville <bigon@debian.org>  Mon, 16 Aug 2021 13:31:02 +0200
+
+libgovirt (0.3.7-2) unstable; urgency=medium
+
+  * debian/control.in: Add ca-certificates to the BD, this is needed for the
+    tests (Closes: #971166)
+
+ -- Laurent Bigonville <bigon@debian.org>  Mon, 07 Dec 2020 14:34:22 +0100
+
+libgovirt (0.3.7-1) unstable; urgency=medium
+
+  * New upstream release
+  * debian/upstream/signing-key.asc: Add Eduardo public key
+  * debian/watch: Signature suffix is now .sig
+  * New upstream release
+  * Bump debhelper compatibility to 12
+  * debian/control.in: Bump libxml2-dev to 2.9.10, this is only needed because
+    of a bug in libxml fixed in this version
+  * debian/control.in: Bump Standards-Version to 4.5.0 (no further changes)
+  * debian/upstream/signing-key.asc Minimize A9D8C21429AC6C82 key to please
+    lintian
+
+ -- Laurent Bigonville <bigon@debian.org>  Fri, 28 Feb 2020 14:32:12 +0100
+
+libgovirt (0.3.4-3.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * Regenerate test certificates with expiration date far in the future to
+    fix test failures (closes: #915270).
+
+ -- Giovanni Mascellani <gio@debian.org>  Tue, 21 May 2019 14:32:51 +0200
+
+libgovirt (0.3.4-3) unstable; urgency=medium
+
+  * Bump debhelper compat to 11
+  * Update Vcs fields for migration to https://salsa.debian.org/
+  * Add -Wl,-O1 to our LDFLAGS
+  * Bump Standards-Version to 4.3.0
+
+ -- Jeremy Bicha <jbicha@debian.org>  Thu, 27 Dec 2018 21:33:34 -0500
+
+libgovirt (0.3.4-2) unstable; urgency=medium
+
+  * debian/control.in: Add libglib2.0-dev and librest-dev to the libgovirt-dev
+    dependencies
+  * Update debian/copyright file
+
+ -- Laurent Bigonville <bigon@debian.org>  Sun, 24 Apr 2016 06:56:56 +0200
+
+libgovirt (0.3.4-1) unstable; urgency=medium
+
+  * Initial release (Closes: #822141)
+
+ -- Laurent Bigonville <bigon@debian.org>  Thu, 21 Apr 2016 13:13:15 +0200

@@ -1,0 +1,68 @@
+Source: libgovirt
+Priority: optional
+Section: libs
+Maintainer: Debian GNOME Maintainers <pkg-gnome-maintainers@lists.alioth.debian.org>
+Uploaders: @GNOME_TEAM@
+Build-Depends: ca-certificates <!nocheck>,
+               debhelper-compat (= 12),
+               gnome-pkg-tools,
+               gobject-introspection,
+               libgirepository1.0-dev (>= 1.30.0),
+               libglib2.0-dev (>= 2.38.0),
+               librest-dev (>= 0.7.92),
+# This is only needed because of a bug in libxml fixed in this version
+               libxml2-dev (>= 2.9.10),
+               pkg-config
+Standards-Version: 4.5.1
+Vcs-Browser: https://salsa.debian.org/gnome-team/libgovirt
+Vcs-Git: https://salsa.debian.org/gnome-team/libgovirt.git
+
+Package: libgovirt2
+Architecture: any
+Depends: libgovirt-common (= ${source:Version}),
+         ${misc:Depends},
+         ${shlibs:Depends}
+Multi-arch: same
+Description: GObject-based library to access oVirt REST API
+ libgovirt is a library that allows applications to use oVirt REST API
+ to list VMs managed by an oVirt instance, and to get the connection
+ parameters needed to make a SPICE/VNC connection to them.
+
+Package: libgovirt-common
+Architecture: all
+Depends: ${misc:Depends}
+Multi-arch: foreign
+Description: GObject-based library to access oVirt REST API (common files)
+ libgovirt is a library that allows applications to use oVirt REST API
+ to list VMs managed by an oVirt instance, and to get the connection
+ parameters needed to make a SPICE/VNC connection to them.
+ .
+ This package contains the translation files.
+
+Package: libgovirt-dev
+Section: libdevel
+Architecture: any
+Depends: gir1.2-govirt-1.0 (= ${binary:Version}),
+         libglib2.0-dev (>= 2.38.0),
+         libgovirt2 (= ${binary:Version}),
+         librest-dev (>= 0.7.92),
+         ${misc:Depends}
+Multi-arch: same
+Description: GObject-based library to access oVirt REST API (dev files)
+ libgovirt is a library that allows applications to use oVirt REST API
+ to list VMs managed by an oVirt instance, and to get the connection
+ parameters needed to make a SPICE/VNC connection to them.
+ .
+ This package contains the development files.
+
+Package: gir1.2-govirt-1.0
+Section: introspection
+Architecture: any
+Depends: ${gir:Depends}, ${misc:Depends}, ${shlibs:Depends}
+Multi-arch: same
+Description: GObject introspection data for libgovirt
+ libgovirt is a library that allows applications to use oVirt REST API
+ to list VMs managed by an oVirt instance, and to get the connection
+ parameters needed to make a SPICE/VNC connection to them.
+ .
+ This package contains introspection data for the libgovirt library.

@@ -1,0 +1,28 @@
+#!/usr/bin/make -f
+
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,-O1 -Wl,-z,defs -Wl,--as-needed
+
+CHECK_HOME = $(CURDIR)/debian/tmp/home
+
+%:
+	dh $@  --with gir,gnome
+
+override_dh_auto_test:
+	mkdir -p $(CHECK_HOME)
+	env HOME=$(CHECK_HOME) XDG_RUNTIME_DIR=$(CHECK_HOME) dh_auto_test
+
+override_dh_install:
+	find debian/tmp -name '*.a' -print -delete
+	find debian/tmp -name '*.la' -print -delete
+	dh_install
+
+override_dh_missing:
+	dh_missing --fail-missing
+
+override_dh_clean:
+	rm -rf $(CHECK_HOME)
+	dh_clean
+
+override_dh_makeshlibs:
+	dh_makeshlibs -- -c4
